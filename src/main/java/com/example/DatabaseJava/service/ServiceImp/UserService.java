@@ -85,7 +85,7 @@ public class UserService implements IUserService
   public User UpdateUser(User user) throws Exception {
     List<User> found = null;
     try {
-      found  = userRepository.findByName(user.getNameUser());
+      found  = userRepository.findByName(user.getName());
     } catch (Exception e) {
     }
     if(found.size()>0){
@@ -93,7 +93,7 @@ public class UserService implements IUserService
     }
     User updated = GetUser(user.getIdUser());
 
-    updated.setNameUser(user.getNameUser());
+    updated.setName(user.getName());
     updated.setSurname(user.getSurname());
     updated.setSex(user.getSex());
     updated.setPhone(user.getPhone());

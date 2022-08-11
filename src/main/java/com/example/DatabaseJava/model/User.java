@@ -24,14 +24,14 @@ import java.util.Objects;
     this.idUser = idUser;
   }
 
-  public String getNameUser()
+  public String getName()
   {
     return name;
   }
 
-  public void setNameUser(String nameUser)
+  public void setName(String name)
   {
-    this.name = nameUser;
+    this.name = name;
   }
 
   public String getSurname()

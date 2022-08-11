@@ -58,7 +58,7 @@ public class UserController
     }
     catch (Exception e)
     {
-      throw new Exception("User exist");
+      throw new Exception("User exist"+ e.getMessage());
     }
 
   }

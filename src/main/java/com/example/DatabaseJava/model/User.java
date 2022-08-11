@@ -6,13 +6,13 @@ import java.util.Objects;
 @Entity @Table(name = "user", schema = "main", catalog = "") public class User
 {
   @GeneratedValue(strategy = GenerationType.AUTO) @Id @Column(name = "idUser", nullable = true) private Integer idUser;
-  @Basic @Column(name = "nameUser", nullable = false, length = -1) private String nameUser;
+  @Basic @Column(name = "name", nullable = false, length = -1) private String name;
   @Basic @Column(name = "surname", nullable = false, length = -1) private String surname;
   @Basic @Column(name = "sex", nullable = false) private String sex;
   @Basic @Column(name = "phone", nullable = false, length = -1) private String phone;
   @Basic @Column(name = "email", nullable = false, length = -1) private String email;
   @Basic @Column(name = "password", nullable = false, length = -1) private String password;
-  @Basic @Column(name = "idBooking", nullable = true) private Integer idBooking;
+
 
   public Integer getIdUser()
   {
@@ -26,12 +26,12 @@ import java.util.Objects;
 
   public String getNameUser()
   {
-    return nameUser;
+    return name;
   }
 
   public void setNameUser(String nameUser)
   {
-    this.nameUser = nameUser;
+    this.name = nameUser;
   }
 
   public String getSurname()
@@ -84,15 +84,6 @@ import java.util.Objects;
     this.password = password;
   }
 
-  public Integer getIdBooking()
-  {
-    return idBooking;
-  }
-
-  public void setIdBooking(Integer idBooking)
-  {
-    this.idBooking = idBooking;
-  }
 
   @Override public boolean equals(Object o)
   {
@@ -101,16 +92,15 @@ import java.util.Objects;
     if (o == null || getClass() != o.getClass())
       return false;
     User that = (User) o;
-    return Objects.equals(idUser, that.idUser) && Objects.equals(nameUser,
-        that.nameUser) && Objects.equals(surname, that.surname)
+    return Objects.equals(idUser, that.idUser) && Objects.equals(name,
+        that.name) && Objects.equals(surname, that.surname)
         && Objects.equals(sex, that.sex) && Objects.equals(phone, that.phone)
         && Objects.equals(email, that.email) && Objects.equals(password,
-        that.password) && Objects.equals(idBooking, that.idBooking);
+        that.password) ;
   }
 
   @Override public int hashCode()
   {
-    return Objects.hash(idUser, nameUser, surname, sex, phone, email, password,
-        idBooking);
+    return Objects.hash(idUser, name, surname, sex, phone, email, password);
   }
 }

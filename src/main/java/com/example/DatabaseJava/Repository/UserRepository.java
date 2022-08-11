@@ -10,7 +10,7 @@ import java.util.List;
 public interface UserRepository extends CrudRepository<User, Integer>
 {
   List<User> findById(int id);
-  List<User> findByNameUser(String NameUser);
+  List<User> findByName(String NameUser);
   @Transactional void deleteById(int id);
   List<User> findByEmail(String Email);
 

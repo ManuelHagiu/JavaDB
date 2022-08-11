@@ -35,8 +35,8 @@ import java.util.Objects;
     if (o == null || getClass() != o.getClass())
       return false;
     Airport that = (Airport) o;
-    return Objects.equals(idAirport,
-        that.idAirport) && Objects.equals(nameAirport, that.nameAirport);
+    return Objects.equals(idAirport, that.idAirport) && Objects.equals(
+        nameAirport, that.nameAirport);
   }
 
   @Override public int hashCode()

@@ -85,7 +85,7 @@ public class UserService implements IUserService
   public User UpdateUser(User user) throws Exception {
     List<User> found = null;
     try {
-      found  = userRepository.findByNameUser(user.getNameUser());
+      found  = userRepository.findByName(user.getNameUser());
     } catch (Exception e) {
     }
     if(found.size()>0){

@@ -33,6 +33,20 @@ public class UserController
     }
   }
 
+
+  @GetMapping("/CheckUser")
+  public User CheckUser(@RequestParam String Email,@RequestParam String Password)
+      throws Exception
+  {
+    try {
+      User returnUser = UserService.CheckUser(Email, Password);
+      System.out.println(returnUser);
+      return returnUser;
+    } catch (Exception e) {
+      throw new Exception("Email not exist");
+    }
+  }
+
   @PostMapping("/AddUser") public User AddUser(@RequestBody User user)
       throws Exception
   {

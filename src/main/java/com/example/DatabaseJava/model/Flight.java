@@ -14,6 +14,8 @@ import java.util.Objects;
   @ManyToOne(cascade = CascadeType.ALL) @JoinColumn(name = "destinationAirport", referencedColumnName = "idAirport", nullable = false) private Airport destinationAirport;
   @Basic @Column(name = "destinationCountry", nullable = false, length = -1) private String destinationCountry;
   @Basic @Column(name = "destinationContinent", nullable = false, length = -1) private String destinationContinent;
+
+  @Basic @Column(name = "company", nullable = false) private String company;
   @Basic @Column(name = "dateTime", nullable = false) private LocalDateTime dateTime;
   @Basic @Column(name = "length", nullable = false, precision = 0) private double length;
   @Basic @Column(name = "totalSeats", nullable = false) private int totalSeats;
@@ -102,6 +104,16 @@ import java.util.Objects;
     this.destinationContinent = destinationContinent;
   }
 
+  public String getCompany()
+  {
+    return company;
+  }
+
+  public void setCompany(String company)
+  {
+    this.company = company;
+  }
+
   public LocalDateTime getDateTime()
   {
     return dateTime;
@@ -187,7 +199,8 @@ import java.util.Objects;
         that.departureContinent) && Objects.equals(destinationAirport,
         that.destinationAirport) && Objects.equals(destinationCountry,
         that.destinationCountry) && Objects.equals(destinationContinent,
-        that.destinationContinent) && Objects.equals(dateTime, that.dateTime)
+        that.destinationContinent) && Objects.equals(company, that.company)
+        && Objects.equals(dateTime, that.dateTime)
         && Objects.equals(length, that.length) && Objects.equals(price,
         that.price) && Objects.equals(priceForLuggage, that.priceForLuggage)
         && Objects.equals(status, that.status);
@@ -197,7 +210,7 @@ import java.util.Objects;
   {
     return Objects.hash(idFlight, flightNo, departureAirport, departureCountry,
         departureContinent, destinationAirport, destinationCountry,
-        destinationContinent, dateTime, length, totalSeats, totalBookedSeats,
+        destinationContinent, company, dateTime, length, totalSeats, totalBookedSeats,
         price, priceForLuggage, status);
   }
 }

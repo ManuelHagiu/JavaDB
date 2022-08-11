@@ -1,6 +1,7 @@
 package com.example.DatabaseJava.service.ServiceImp;
 
 import com.example.DatabaseJava.Repository.FlightRepository;
+import com.example.DatabaseJava.model.Booking;
 import com.example.DatabaseJava.model.Flight;
 import com.example.DatabaseJava.service.IFlightService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -52,6 +53,16 @@ public class FlightService implements IFlightService {
 
   @Override public Flight UpdateFlight(Flight flight) throws Exception
   {
+    List<Flight> found = null;
+    try {
+      found  = flightRepository.findByFlightNo(flight.getFlightNo());
+    } catch (Exception e) {
+    }
+    if(found.size()>0){
+      throw new Exception("Flight Already exist");
+    }
+
+
     Flight updated = GetFlight(flight.getIdFlight());
 
     updated.setFlightNo(flight.getFlightNo());
@@ -61,6 +72,7 @@ public class FlightService implements IFlightService {
     updated.setDestinationAirport(flight.getDestinationAirport());
     updated.setDestinationCountry(flight.getDestinationCountry());
     updated.setDestinationContinent(flight.getDestinationContinent());
+    updated.setCompany(flight.getCompany());
     updated.setDateTime(flight.getDateTime());
     updated.setLength(flight.getLength());
     updated.setTotalSeats(flight.getTotalSeats());

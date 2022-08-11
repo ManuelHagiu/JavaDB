@@ -28,6 +28,21 @@ public class UserService implements IUserService
     }
   }
 
+  @Override public User CheckUser(String Email, String Password)
+      throws Exception
+  {
+    User user;
+    try {
+      List<User> users = userRepository.findByEmail(Email);
+      user = users.get(0);
+    } catch (Exception e) {
+      throw new Exception("User does not exist");
+    }
+    if(user.getPassword().equals(Password)) return user;
+    throw new Exception("Password incorrect");
+
+  }
+
   @Override
   public User AddUser(User user) throws Exception {
     List<User> found = null;

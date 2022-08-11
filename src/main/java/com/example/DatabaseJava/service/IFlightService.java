@@ -10,5 +10,5 @@ public interface IFlightService
   Flight GetFlight(int id) throws Exception;
   Flight AddFlight(Flight flight) throws Exception;
   Flight RemoveFlight(int id) throws Exception;
-  Flight UpdateFlight(Flight recipe) throws Exception;
+  Flight UpdateFlight(Flight flight) throws Exception;
 }

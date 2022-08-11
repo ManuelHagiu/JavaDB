@@ -1,6 +1,7 @@
 package com.example.DatabaseJava.Controller;
 
 import com.example.DatabaseJava.model.Airport;
+import com.example.DatabaseJava.model.Booking;
 import com.example.DatabaseJava.model.Flight;
 import com.example.DatabaseJava.service.IAirportService;
 import com.example.DatabaseJava.service.IFlightService;

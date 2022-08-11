@@ -54,6 +54,7 @@ public class BookingService implements IBookingService {
 
     updated.setFlightNo(booking.getFlightNo());
     updated.setUser(booking.getUser());
+    updated.setFlight(booking.getFlight());
     updated.setLuggage(booking.getLuggage());
     updated.setFinalPrice(booking.getFinalPrice());
     updated.setFirstName(booking.getFirstName());

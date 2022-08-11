@@ -7,6 +7,8 @@ import java.util.Objects;
 {
   @GeneratedValue(strategy = GenerationType.AUTO) @Id @Column(name = "idBooking", nullable = true) private Integer idBooking;
   @Basic @Column(name = "flightNO", nullable = false) private int flightNo;
+
+  @ManyToOne @JoinColumn(name = "flight", nullable = false) private Flight flight;
   @ManyToOne @JoinColumn(name = "user", nullable = false) private User user;
   @Basic @Column(name = "luggage", nullable = false) private int luggage;
   @Basic @Column(name = "finalPrice", nullable = false, precision = 0) private double finalPrice;
@@ -34,6 +36,16 @@ import java.util.Objects;
   public void setFlightNo(int flightNo)
   {
     this.flightNo = flightNo;
+  }
+
+  public Flight getFlight()
+  {
+    return flight;
+  }
+
+  public void setFlight(Flight flight)
+  {
+    this.flight = flight;
   }
 
   public User getUser()
@@ -126,6 +138,7 @@ import java.util.Objects;
     return flightNo == that.flightNo && luggage == that.luggage
         && status == that.status && idFlight == that.idFlight && Objects.equals(
         idBooking, that.idBooking) && Objects.equals(user, that.user)
+        && Objects.equals(flight, that.flight)
         && Objects.equals(finalPrice, that.finalPrice) && Objects.equals(
         firstName, that.firstName) && Objects.equals(lastName, that.lastName)
         && Objects.equals(passportId, that.passportId);
@@ -133,7 +146,7 @@ import java.util.Objects;
 
   @Override public int hashCode()
   {
-    return Objects.hash(idBooking, flightNo, user, luggage, finalPrice,
+    return Objects.hash(idBooking, flightNo,flight, user, luggage, finalPrice,
         firstName, lastName, passportId, status, idFlight);
   }
 }

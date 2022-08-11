@@ -14,8 +14,8 @@ import java.util.Objects;
   @ManyToOne(cascade = CascadeType.ALL) @JoinColumn(name = "destinationAirport", referencedColumnName = "idAirport", nullable = false) private Airport destinationAirport;
   @Basic @Column(name = "destinationCountry", nullable = false, length = -1) private String destinationCountry;
   @Basic @Column(name = "destinationContinent", nullable = false, length = -1) private String destinationContinent;
+  @ManyToOne @JoinColumn(name = "company", nullable = false) private Company company;
 
-  @Basic @Column(name = "company", nullable = false) private String company;
   @Basic @Column(name = "dateTime", nullable = false) private LocalDateTime dateTime;
   @Basic @Column(name = "length", nullable = false, precision = 0) private double length;
   @Basic @Column(name = "totalSeats", nullable = false) private int totalSeats;
@@ -104,12 +104,12 @@ import java.util.Objects;
     this.destinationContinent = destinationContinent;
   }
 
-  public String getCompany()
+  public Company getCompany()
   {
     return company;
   }
 
-  public void setCompany(String company)
+  public void setCompany(Company company)
   {
     this.company = company;
   }

@@ -62,7 +62,7 @@ public class BookingController{
     }
 
   }
-  @DeleteMapping("/RemoveBooking")
+  @RequestMapping(value = "/RemoveBooking",method = RequestMethod.GET)
   public Booking RemoveBooking(@RequestParam int id) throws Exception
   {
     try {

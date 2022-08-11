@@ -5,7 +5,7 @@ import java.util.Objects;
 
 @Entity @Table(name = "airport", schema = "main", catalog = "") public class Airport
 {
-  @GeneratedValue(strategy = GenerationType.AUTO) @Id @Column(name = "idAirport", nullable = true) private Integer idAirport;
+  @GeneratedValue(strategy = GenerationType.IDENTITY) @Id @Column(name = "idAirport", nullable = true) private Integer idAirport;
   @Basic @Column(name = "nameAirport", nullable = false, length = -1) private String nameAirport;
 
   public Integer getIdAirport()

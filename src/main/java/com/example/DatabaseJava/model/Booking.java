@@ -5,7 +5,7 @@ import java.util.Objects;
 
 @Entity @Table(name = "booking", schema = "main", catalog = "") public class Booking
 {
-  @GeneratedValue(strategy = GenerationType.AUTO) @Id @Column(name = "idBooking", nullable = true) private Integer idBooking;
+  @GeneratedValue(strategy = GenerationType.IDENTITY) @Id @Column(name = "idBooking", nullable = true) private Integer idBooking;
   @Basic @Column(name = "flightNO", nullable = false) private int flightNo;
 
   @ManyToOne @JoinColumn(name = "flight", nullable = false) private Flight flight;
@@ -15,7 +15,7 @@ import java.util.Objects;
   @Basic @Column(name = "firstName", nullable = false, length = -1) private String firstName;
   @Basic @Column(name = "lastName", nullable = false, length = -1) private String lastName;
   @Basic @Column(name = "passportId", nullable = false, length = -1) private String passportId;
-  @Basic @Column(name = "status", nullable = false) private int status;
+  @Basic @Column(name = "status", nullable = false) private String status;
   @Basic @Column(name = "idFlight", nullable = false) private int idFlight;
 
   public Integer getIdBooking()
@@ -108,12 +108,12 @@ import java.util.Objects;
     this.passportId = passportId;
   }
 
-  public int getStatus()
+  public String getStatus()
   {
     return status;
   }
 
-  public void setStatus(int status)
+  public void setStatus(String status)
   {
     this.status = status;
   }

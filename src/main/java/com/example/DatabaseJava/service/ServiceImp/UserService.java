@@ -48,10 +48,10 @@ public class UserService implements IUserService
     List<User> found = null;
     try {
       found  = userRepository.findByEmail(user.getEmail());
+      if(found.size()>0){
+        throw  new Exception("User with this email already exists");
+      }
     } catch (Exception e) {
-    }
-    if(found.size()>0){
-      throw  new Exception("User with this email already exists");
     }
     return userRepository.save(user);
 

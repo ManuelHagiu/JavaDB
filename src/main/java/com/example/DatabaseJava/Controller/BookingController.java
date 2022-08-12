@@ -70,6 +70,7 @@ public class BookingController{
       System.out.println(returned);
       return returned;
     }catch (Exception e){
+      System.out.println(e.getMessage());
       throw new Exception("Booking does not exist");
     }
   }

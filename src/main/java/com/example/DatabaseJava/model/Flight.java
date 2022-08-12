@@ -6,7 +6,7 @@ import java.util.Objects;
 
 @Entity @Table(name = "flight", schema = "main", catalog = "") public class Flight
 {
-  @GeneratedValue(strategy = GenerationType.SEQUENCE) @Id @Column(name = "idFlight", nullable = false) private Integer idFlight;
+  @GeneratedValue(strategy = GenerationType.IDENTITY) @Id @Column(name = "idFlight", nullable = false) private Integer idFlight;
   @Basic @Column(name = "flightNO", nullable = false) private int flightNo;
   @ManyToOne(cascade = CascadeType.ALL) @JoinColumn(name = "departureAirport", referencedColumnName = "idAirport", nullable = false) private Airport departureAirport;
   @Basic @Column(name = "departureCountry", nullable = false, length = -1) private String departureCountry;

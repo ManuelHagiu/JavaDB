@@ -5,7 +5,7 @@ import java.util.Objects;
 
 @Entity @Table(name = "booking", schema = "main", catalog = "") public class Booking
 {
-  @GeneratedValue(strategy = GenerationType.IDENTITY) @Id @Column(name = "idBooking", nullable = false) private Integer idBooking;
+  @GeneratedValue(strategy = GenerationType.IDENTITY) @Id @Column(name = "idBooking", nullable = true) private Integer idBooking;
   @Basic @Column(name = "flightNO", nullable = false) private int flightNo;
 
   @ManyToOne @JoinColumn(name = "flight", nullable = false) private Flight flight;

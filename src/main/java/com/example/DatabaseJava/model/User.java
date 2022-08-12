@@ -5,7 +5,7 @@ import java.util.Objects;
 
 @Entity @Table(name = "user", schema = "main", catalog = "") public class User
 {
-  @GeneratedValue(strategy = GenerationType.IDENTITY) @Id @Column(name = "idUser", nullable = false) private Integer idUser;
+  @GeneratedValue(strategy = GenerationType.IDENTITY) @Id @Column(name = "idUser", nullable = true) private Integer idUser;
   @Basic @Column(name = "name", nullable = false, length = -1) private String name;
   @Basic @Column(name = "surname", nullable = false, length = -1) private String surname;
   @Basic @Column(name = "sex", nullable = false) private String sex;
